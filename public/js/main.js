@@ -163,9 +163,16 @@ function getTotalData(teamJson){
 
 console.log(twitterFormatter(twitterHandle, SummonerName, teamGold, teamKills, teamTowers, teamDragons, teamBarons, gameMin, gameSec));
 
+    
+
+    cb.__call("statuses_update",{
+        "status": twitterFormatter(twitterHandle, SummonerName, teamGold, teamKills, teamTowers, teamDragons, teamBarons, gameMin, gameSec)},
+    function (reply) {
+        // ...
+    });
+
 }
 
-<<<<<<< HEAD
 function twitterFormatter (twitterHandle, summonerName, teamGold, teamKills, teamTowers, teamDragon, teamBaron, gameMin, gameSec, teamIndex) {
 
    var a = 0;
@@ -176,16 +183,4 @@ function twitterFormatter (twitterHandle, summonerName, teamGold, teamKills, tea
    }
   return '@'+twitterHandle+' Team '+summonerName+' Gold: '+teamGold[a]+'-'+teamGold[b]+', Kills: '+teamKills[a]+'-'+teamKills[b]+', Towers: '+teamTowers[a]+'-'+teamTowers[b]+' Drag: '+teamDragon[a]+'-'+teamDragon[b]+' Baron: '+teamBaron[a]+'-'+teamBaron[b]+', Time: '+gameMin+':'+gameSec;
 }
-=======
-function tweet(){
-    
 
-    cb.__call("statuses_update",{
-        "status": "Whohoo, I just tweeted!"},
-    function (reply) {
-        // ...
-    });
-}
-
-
->>>>>>> origin/master
