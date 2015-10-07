@@ -7,20 +7,29 @@
     <script src="/js/require.js"></script>
     <script src="/js/codebird.js"></script>
     <script src="/js/main.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheet/main.css">
     </head>
 
     <body>
+    <div class="container">
+        <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+    <div class="form-group">
         <label>Enter your Twitter Account Name</label>
                 <br />
-        <input id="twitterHandle" type="name"</input> 
+        <input id="twitterHandle" class="form-control" type="name"</input> 
         <br />
-        <label>Enter a SummonerName</label>
+        <label>Enter a Summoners Name</label>
                 <br />
 
-        <input id="sName" />
+        <input id="sName" class="form-control" />
         <br />
-        <input type="submit" onclick="getInput();"</input>
+        <input type="submit" class ="btn btn btn-primary" onclick="getInput();"</input>
+        </div>
+        </div>
+        </div>
+        </div>
     </body>
 
 </html>
