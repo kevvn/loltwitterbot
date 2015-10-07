@@ -142,25 +142,29 @@ function getTotalData(teamJson){
         teamTowers[index] = tempTeam.towerKills;
     }
     
-    gameSec = ((teamJson.matchDuration) % 60)
-    gimeMin =((teamJson.matchDuration)/60)
+    gameSec = ((teamJson.matchDuration) % 60).toFixed(.2);
+    gameMin =((teamJson.matchDuration)/60).toFixed(.2);
     console.log(teamGold);
     console.log(teamKills);
     console.log(teamTowers);
     console.log(teamDragons);
     console.log(teamBarons);
 
+    var twitterHandle = $("#twitterHandle").val();
+    var SummonerName = $("#sName").val();
+
+
+console.log(twitterFormatter(twitterHandle, SummonerName, teamGold, teamKills, teamTowers, teamDragons, teamBarons, gameMin, gameSec));
+
 }
 
-function tweet() {
-var Bot = new TwitterBot({
-  "consumer_secret": "jnYUwJPzCN0EcFl3GNPxYGj4EP4aTpAb2KTSYQBtOVQTK6Pa73",
-    "consumer_key": "J0cWnnzh3xDEHbjGBmDwHEWz0",
-    "access_token": "3799282892-wZqFwAYos6Yy9SRC786Bm9JowkFv9ToszAqIaiD",
-    "access_token_secret": "MhgCPR6XQVPN7M3ATOYkLuhjWwkDkV54IlCXkZlmhIjqh"
-  });
-Bot.addAction("tweet", function(twitter, action, tweet) {
-  Bot.tweet("I'm posting a tweet!");
-});
+function twitterFormatter (twitterHandle, summonerName, teamGold, teamKills, teamTowers, teamDragon, teamBaron, gameMin, gameSec, teamIndex) {
 
-  }
+   var a = 0;
+   var b = 1;
+   if (requestTeamIndex == 1) {
+      a = 1;
+      b = 0;
+   }
+  return '@'+twitterHandle+' Team '+summonerName+' Gold: '+teamGold[a]+'-'+teamGold[b]+', Kills: '+teamKills[a]+'-'+teamKills[b]+', Towers: '+teamTowers[a]+'-'+teamTowers[b]+' Drag: '+teamDragon[a]+'-'+teamDragon[b]+' Baron: '+teamBaron[a]+'-'+teamBaron[b]+', Time: '+gameMin+':'+gameSec;
+}
