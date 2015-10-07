@@ -1,5 +1,5 @@
 // Parse app key initializer
-Parse.initialize("O8DRdrCH1swFcLmKGBY6T7SWEuZpzdblkqvi9Ucj", "DTPRIUqThzJpuFBzfhO78acdOSy22q2t5vCax7WH");
+//Parse.initialize("O8DRdrCH1swFcLmKGBY6T7SWEuZpzdblkqvi9Ucj", "DTPRIUqThzJpuFBzfhO78acdOSy22q2t5vCax7WH");
 
 // League DEV api key 89fd5947-db70-4995-bcfe-46600a67628f
 // Randy's api key 1809d909-de42-4eda-ae26-645323c35f5b
