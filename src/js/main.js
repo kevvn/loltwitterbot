@@ -346,9 +346,7 @@ function currentGameLookup(){
     var summonerID = 21328540    ;
         // Fetches current game info 
         $.ajax({
-            xhrFields: {
-                withCredentials: true
-            },
+            
             url: 'https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1/' + summonerID + '?api_key=' + APIKEY,
             type: 'GET',
             dataType: 'json',
