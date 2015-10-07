@@ -4,6 +4,12 @@
 // League DEV api key 89fd5947-db70-4995-bcfe-46600a67628f
 // Randy's api key 1809d909-de42-4eda-ae26-645323c35f5b
 
+var cb = new Codebird;
+cb.setConsumerKey("J0cWnnzh3xDEHbjGBmDwHEWz0", "jnYUwJPzCN0EcFl3GNPxYGj4EP4aTpAb2KTSYQBtOVQTK6Pa73");
+
+cb.setToken("3799282892-wZqFwAYos6Yy9SRC786Bm9JowkFv9ToszAqIaiD", "MhgCPR6XQVPN7M3ATOYkLuhjWwkDkV54IlCXkZlmhIjqh");
+
+
 var APIKEY = "1809d909-de42-4eda-ae26-645323c35f5b";
 var matchIden = "";
 var summonerIden = "";
@@ -154,15 +160,14 @@ function getTotalData(teamJson){
 
 }
 
-function tweet() {
-var Bot = new TwitterBot({
-  "consumer_secret": "jnYUwJPzCN0EcFl3GNPxYGj4EP4aTpAb2KTSYQBtOVQTK6Pa73",
-    "consumer_key": "J0cWnnzh3xDEHbjGBmDwHEWz0",
-    "access_token": "3799282892-wZqFwAYos6Yy9SRC786Bm9JowkFv9ToszAqIaiD",
-    "access_token_secret": "MhgCPR6XQVPN7M3ATOYkLuhjWwkDkV54IlCXkZlmhIjqh"
-  });
-Bot.addAction("tweet", function(twitter, action, tweet) {
-  Bot.tweet("I'm posting a tweet!");
-});
+function tweet(){
+    
 
-  }
+    cb.__call("statuses_update",{
+        "status": "Whohoo, I just tweeted!"},
+    function (reply) {
+        // ...
+    });
+}
+
+
