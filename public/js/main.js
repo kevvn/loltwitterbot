@@ -174,7 +174,7 @@ console.log(twitterFormatter(twitterHandle, SummonerName, teamGold, teamKills, t
 
 
     cb.__call("statuses_update",{
-        "status": twitterFormatter(twitterHandle, SummonerName, teamGold, teamKills, teamTowers, teamDragons, teamBarons, gameMin, gameSec)},
+        "status": twitterFormatter(twitterHandle, SummonerName, teamGold, teamKills, teamTowers, teamDragons, teamBarons, gameMin, gameSec, requestTeamIndex)},
     function (reply) {
         // ...
     });
