@@ -15,6 +15,8 @@ var teamTowers = [];
 var teamDragons = [];
 var teamBarons = [];
 var time;
+var gameSec;
+var gameHour;
 
 var data = {
    "region":"NA",
@@ -2126,6 +2128,12 @@ var data = {
    "matchDuration":1904
 }
 
+
+function getInput(){
+ 
+    var input = $("#sName").val();
+    summonerIdLookup(input);
+}
 // Function to get summoner id
 function summonerIdLookup(summonername) {
 
@@ -2154,7 +2162,7 @@ function summonerIdLookup(summonername) {
 // FORMAT @xxxxxxxxxxxxxxx Team NAMEOFCHARXXXXXX Gold: 101.5k-101.5k Kills: 55-55, Towers: 9-9, Drag: 5-5, Baron: 5-5 Time: 00:00
 
 function previousGameLookup(){
-    if (summonerId !== "") {
+    if (summonerIden !== "") {
         $.ajax({
             url: 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/' + summonerIden + '?beginIndex=0&endIndex=1?api_key=' + APIKEY,
             type: 'GET',
@@ -2206,7 +2214,7 @@ function getParticipantId(teamJson){
 
 // FORMAT @xxxxxxxxxxxxxxx Team NAMEOFCHARXXXXXX Gold: 101.5k-101.5k Kills: 55-55, Towers: 9-9, Drag: 5-5, Baron: 5-5 Time: 00:00
 
-function getTotalGold(teamJson){
+function getTotalData(teamJson){
     
     // Gets team 1
     for (i = 0; i < 10; ++i) {
@@ -2229,5 +2237,13 @@ function getTotalGold(teamJson){
         teamDragons[index] = tempTeam.dragonKills;
         teamTowers[index] = tempTeam.towerKills;
     }
+    
+    gameSec = ((teamJson.matchDuration) % 60)
+    gimeMin =((teamJson.matchDuration)/60)
+console.log(teamGold);
+console.log(teamKills);
+console.log(teamTowers);
+console.log(teamDragons);
+console.log(teamBarons);
 
 }
