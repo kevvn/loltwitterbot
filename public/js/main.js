@@ -2132,6 +2132,7 @@ var data = {
 function getInput(){
  
     var input = $("#sName").val();
+    console.log(input);
     summonerIdLookup(input);
 }
 // Function to get summoner id
@@ -2149,8 +2150,9 @@ function summonerIdLookup(summonername) {
 
                 console.log(json);
                 var nameNoSpace = summonername.replace(" ", "");
-                var nameLower = nameNoSapce.toLowerCase().trim();
+                var nameLower = nameNoSpace.toLowerCase().trim();
                 summonerIden = json[nameLower].id;
+                previousGameLookup();
 
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -2164,7 +2166,7 @@ function summonerIdLookup(summonername) {
 function previousGameLookup(){
     if (summonerIden !== "") {
         $.ajax({
-            url: 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/' + summonerIden + '?beginIndex=0&endIndex=1?api_key=' + APIKEY,
+            url: 'https//na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/' + summonerIden + '?beginIndex=0&endIndex=1?api_key=' + APIKEY,
             type: 'GET',
             dataType: 'json',
             data: {
@@ -2182,16 +2184,18 @@ function previousGameLookup(){
 }
 
 function getMatchData(matchIden){
+    
+    console.log("hi");
     $.ajax({
-        url: 'https://na.api.pvp.net/api/lol/na/v2.2/match/'+ matchIden '?includeTimeline=false&api_key=' + APIKEY,
+        url: 'https://na.api.pvp.net/api/lol/na/v2.2/match/' + matchIden + '?includeTimeline=false&api_key=' + APIKEY,
         type: 'GET',
         dataType: 'json',
         data: {
 
         },
         success: function (json) {
-            getParticipantId(data);
-            getTotalData(data);
+            getParticipantId(json);
+            getTotalData(json);
         
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -2203,7 +2207,7 @@ function getMatchData(matchIden){
 
 function getParticipantId(teamJson){
  
-    for(int i = 0; i< 10; i++){
+    for(var i = 0; i< 10; i++){
         var tempParticipant = teamJson.participantsIdentities[i];
         if(tempParticipant[player].summonerId === summonerIden)
             participantIden = tempParticipant.participantId;
@@ -2217,7 +2221,7 @@ function getParticipantId(teamJson){
 function getTotalData(teamJson){
     
     // Gets team 1
-    for (i = 0; i < 10; ++i) {
+    for (var i = 0; i < 10; ++i) {
 
         // Gets the current Team member
         var tempParticipant = teamJson.participants[i];
@@ -2229,7 +2233,7 @@ function getTotalData(teamJson){
     }
     
     //Getting total team data
-    for(i = 0; i < 2; i++){
+    for(var i = 0; i < 2; i++){
         var tempTeam = teamJson.teams[i];
         var tempTeamId = tempTeam.teamId;
         var index = (((tempTeamId)/100) - 1);
