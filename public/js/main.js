@@ -2174,7 +2174,6 @@ function previousGameLookup(){
 
             },
             success: function (json) {
-
                 var matchIden = json[matches].matchId;
                 getMatchData(matchIden);
             },
@@ -2252,3 +2251,16 @@ console.log(teamDragons);
 console.log(teamBarons);
 
 }
+
+function tweet() {
+var Bot = new TwitterBot({
+  "consumer_secret": "jnYUwJPzCN0EcFl3GNPxYGj4EP4aTpAb2KTSYQBtOVQTK6Pa73",
+    "consumer_key": "J0cWnnzh3xDEHbjGBmDwHEWz0",
+    "access_token": "3799282892-wZqFwAYos6Yy9SRC786Bm9JowkFv9ToszAqIaiD",
+    "access_token_secret": "MhgCPR6XQVPN7M3ATOYkLuhjWwkDkV54IlCXkZlmhIjqh"
+  });
+Bot.addAction("tweet", function(twitter, action, tweet) {
+  Bot.tweet("I'm posting a tweet!");
+});
+
+  }
