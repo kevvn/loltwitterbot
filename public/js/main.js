@@ -142,8 +142,10 @@ function getTotalData(teamJson){
         teamTowers[index] = tempTeam.towerKills;
     }
     
-    gameSec = ((teamJson.matchDuration) % 60)
-    gimeMin =((teamJson.matchDuration)/60)
+    gameSec = ((teamJson.matchDuration) % 60);
+    gimeMin =((teamJson.matchDuration)/60);
+    
+    
     console.log(teamGold);
     console.log(teamKills);
     console.log(teamTowers);
