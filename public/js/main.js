@@ -10,6 +10,8 @@ cb.setConsumerKey("J0cWnnzh3xDEHbjGBmDwHEWz0", "jnYUwJPzCN0EcFl3GNPxYGj4EP4aTpAb
 cb.setToken("3799282892-wZqFwAYos6Yy9SRC786Bm9JowkFv9ToszAqIaiD", "MhgCPR6XQVPN7M3ATOYkLuhjWwkDkV54IlCXkZlmhIjqh");
 
 
+console.log(cb);
+
 var APIKEY = "1809d909-de42-4eda-ae26-645323c35f5b";
 var matchIden = "";
 var summonerIden = "";
@@ -48,8 +50,13 @@ function summonerIdLookup(summonername) {
             success: function (json) {
 
                 console.log(json);
+                
                 var nameNoSpace = summonername.replace(" ", "");
+                nameNoSpace = nameNoSpace.replace(" ", "");
+
                 var nameLower = nameNoSpace.toLowerCase().trim();
+                console.log(json);
+                console.log(nameLower);
                 summonerIden = json[nameLower].id;
                 previousGameLookup();
 
@@ -163,7 +170,8 @@ function getTotalData(teamJson){
 
 console.log(twitterFormatter(twitterHandle, SummonerName, teamGold, teamKills, teamTowers, teamDragons, teamBarons, gameMin, gameSec));
 
-    
+
+
 
     cb.__call("statuses_update",{
         "status": twitterFormatter(twitterHandle, SummonerName, teamGold, teamKills, teamTowers, teamDragons, teamBarons, gameMin, gameSec)},
@@ -183,4 +191,3 @@ function twitterFormatter (twitterHandle, summonerName, teamGold, teamKills, tea
    }
   return '@'+twitterHandle+' Team '+summonerName+' Gold: '+teamGold[a]+'-'+teamGold[b]+', Kills: '+teamKills[a]+'-'+teamKills[b]+', Towers: '+teamTowers[a]+'-'+teamTowers[b]+' Drag: '+teamDragon[a]+'-'+teamDragon[b]+' Baron: '+teamBaron[a]+'-'+teamBaron[b]+', Time: '+gameMin+':'+gameSec;
 }
-
