@@ -189,5 +189,5 @@ function twitterFormatter (twitterHandle, summonerName, teamGold, teamKills, tea
       a = 1;
       b = 0;
    }
-  return '@'+twitterHandle+' Team '+summonerName+' Gold: '+teamGold[a]+'-'+teamGold[b]+', Kills: '+teamKills[a]+'-'+teamKills[b]+', Towers: '+teamTowers[a]+'-'+teamTowers[b]+' Drag: '+teamDragon[a]+'-'+teamDragon[b]+' Baron: '+teamBaron[a]+'-'+teamBaron[b]+', Time: '+gameMin+':'+gameSec;
+  return '@'+twitterHandle+' Team '+summonerName+' Gold: '+teamGold[a]+'-'+teamGold[b]+', Kills: '+teamKills[a]+'-'+teamKills[b]+', Towers: '+teamTowers[a]+'-'+teamTowers[b]+', Drag: '+teamDragon[a]+'-'+teamDragon[b]+', Baron: '+teamBaron[a]+'-'+teamBaron[b]+', Time: '+gameMin+':'+gameSec;
 }
