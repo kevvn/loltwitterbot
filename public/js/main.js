@@ -4,6 +4,12 @@
 // League DEV api key 89fd5947-db70-4995-bcfe-46600a67628f
 // Randy's api key 1809d909-de42-4eda-ae26-645323c35f5b
 
+var cb = new Codebird;
+cb.setConsumerKey("J0cWnnzh3xDEHbjGBmDwHEWz0", "jnYUwJPzCN0EcFl3GNPxYGj4EP4aTpAb2KTSYQBtOVQTK6Pa73");
+
+cb.setToken("3799282892-wZqFwAYos6Yy9SRC786Bm9JowkFv9ToszAqIaiD", "MhgCPR6XQVPN7M3ATOYkLuhjWwkDkV54IlCXkZlmhIjqh");
+
+
 var APIKEY = "1809d909-de42-4eda-ae26-645323c35f5b";
 var matchIden = "";
 var summonerIden = "";
@@ -144,6 +150,7 @@ function getTotalData(teamJson){
     
     gameSec = ((teamJson.matchDuration) % 60).toFixed(.2);
     gameMin =((teamJson.matchDuration)/60).toFixed(.2);
+
     console.log(teamGold);
     console.log(teamKills);
     console.log(teamTowers);
@@ -158,6 +165,7 @@ console.log(twitterFormatter(twitterHandle, SummonerName, teamGold, teamKills, t
 
 }
 
+<<<<<<< HEAD
 function twitterFormatter (twitterHandle, summonerName, teamGold, teamKills, teamTowers, teamDragon, teamBaron, gameMin, gameSec, teamIndex) {
 
    var a = 0;
@@ -168,3 +176,16 @@ function twitterFormatter (twitterHandle, summonerName, teamGold, teamKills, tea
    }
   return '@'+twitterHandle+' Team '+summonerName+' Gold: '+teamGold[a]+'-'+teamGold[b]+', Kills: '+teamKills[a]+'-'+teamKills[b]+', Towers: '+teamTowers[a]+'-'+teamTowers[b]+' Drag: '+teamDragon[a]+'-'+teamDragon[b]+' Baron: '+teamBaron[a]+'-'+teamBaron[b]+', Time: '+gameMin+':'+gameSec;
 }
+=======
+function tweet(){
+    
+
+    cb.__call("statuses_update",{
+        "status": "Whohoo, I just tweeted!"},
+    function (reply) {
+        // ...
+    });
+}
+
+
+>>>>>>> origin/master
