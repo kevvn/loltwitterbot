@@ -2203,6 +2203,9 @@ function getParticipantId(teamJson){
     }
 }
 
+
+// FORMAT @xxxxxxxxxxxxxxx Team NAMEOFCHARXXXXXX Gold: 101.5k-101.5k Kills: 55-55, Towers: 9-9, Drag: 5-5, Baron: 5-5 Time: 00:00
+
 function getTotalGold(teamJson){
     
     // Gets team 1
@@ -2216,10 +2219,15 @@ function getTotalGold(teamJson){
         teamGold[index] += tempParticipant.stats.goldEarned;
         
     }
+    
+    //Getting total team data
     for(i = 0; i < 2; i++){
         var tempTeam = teamJson.teams[i];
         var tempTeamId = tempTeam.teamId;
         var index = (((tempTeamId)/100) - 1);
+        teamBarons[index] = tempTeam.baronKills;
+        teamDragons[index] = tempTeam.dragonKills;
+        teamTowers[index] = tempTeam.towerKills;
     }
 
 }
