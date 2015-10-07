@@ -3,7 +3,7 @@ Parse.initialize("O8DRdrCH1swFcLmKGBY6T7SWEuZpzdblkqvi9Ucj", "DTPRIUqThzJpuFBzfh
 
 // League DEV api key 89fd5947-db70-4995-bcfe-46600a67628f
 // Randy's api key 1809d909-de42-4eda-ae26-645323c35f5b
-var APIKEY = "1809d909-de42-4eda-ae26-645323c35f5b";
+const APIKEY = "1809d909-de42-4eda-ae26-645323c35f5b";
 var matchId = "";
 var SUMMONER_NAME = "";
 var summonerID = "";
@@ -16,8 +16,8 @@ var k = 0;
 function matchLookUp() {
 
     //Static matchID
-    //matchId = 1955047813;
-    matchId = $("matchId").val();
+    var matchID = 1971445980;
+    //matchId = $("matchId").val();
     //User input a starting matchID
 
     var dataSets = {};
@@ -71,7 +71,8 @@ function matchLookUp() {
     if (matchID !== null) {
         $.ajax({
             // Example matchID 1955047813
-            url: 'https://na.api.pvp.net/api/lol/na/v2.2/match/' + matchId + '?includeTimeline=false&api_key=' + APIKEY,
+            //https://na.api.pvp.net/api/lol/na/v2.2/match/1971445980?includeTimeline=false&api_key=1809d909-de42-4eda-ae26-645323c35f5b
+            url: 'https://na.api.pvp.net/api/lol/na/v2.2/match/' + matchID + '?includeTimeline=false&api_key=' + APIKEY,
             type: 'GET',
             data: {
 
